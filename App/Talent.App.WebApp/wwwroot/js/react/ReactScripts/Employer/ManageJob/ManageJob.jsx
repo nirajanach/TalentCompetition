@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { BodyWrapper, loaderData } from '../../Layout/BodyWrapper.jsx';
 import { Pagination, Icon, Grid, Dropdown, CardGroup } from 'semantic-ui-react';
 import JobCard from './JobCard.jsx';
+import { TALENT_URL } from '../../constants/URLStorage.js';
 
 class ManageJob extends Component {
     constructor(props) {
@@ -66,7 +67,7 @@ class ManageJob extends Component {
 
     // Load data from the server
     loadData(callback) {
-        const link = 'http://localhost:51689/listing/listing/getEmployerJobs';
+        const link = TALENT_URL +'listing/listing/getEmployerJobs';
         const cookies = Cookies.get('talentAuthToken');
 
         $.ajax({
@@ -103,7 +104,7 @@ class ManageJob extends Component {
     // Load sorted data based on filters and sorting options
     loadSortedData(callback) {
         const { activePage, sortBy, filter } = this.state;
-        const link = `http://localhost:51689/listing/listing/getSortedEmployerJobs?activePage=${activePage}&sortbyDate=${sortBy.date}&showActive=${filter.showActive}&showClosed=${filter.showClosed}&showDraft=${filter.showDraft}&showExpired=${filter.showExpired}&showUnexpired=${filter.showUnexpired}`;
+        const link = `${TALENT_URL}listing/listing/getSortedEmployerJobs?activePage=${activePage}&sortbyDate=${sortBy.date}&showActive=${filter.showActive}&showClosed=${filter.showClosed}&showDraft=${filter.showDraft}&showExpired=${filter.showExpired}&showUnexpired=${filter.showUnexpired}`;
         const cookies = Cookies.get('talentAuthToken');
 
         $.ajax({
@@ -163,7 +164,7 @@ class ManageJob extends Component {
 
     // Close a job and update state
     closeJob(jobId) {
-        const link = 'http://localhost:51689/listing/listing/closeJob';
+        const link = TALENT_URL +'listing/listing/closeJob';
         const cookies = Cookies.get('talentAuthToken');
         const requestBody = JSON.stringify(jobId);
 
