@@ -50,9 +50,7 @@ export class IndividualDetailSection extends Component {
         })
     }
 
-    saveContact() {
-        console.log(this.props.componentId)
-        console.log(this.state.newContact)
+    saveContact() {      
         const data = Object.assign({}, this.state.newContact)
         this.props.controlFunc(this.props.componentId, data)
         this.closeEdit()
@@ -118,7 +116,15 @@ export class IndividualDetailSection extends Component {
 
     renderDisplay() {
 
-        let fullName = this.props.details ? `${this.props.details.firstName} ${this.props.details.lastName}` : ""
+        //let fullName = this.props.details ? `${this.props.details.firstName} ${this.props.details.lastName}` : ""
+
+        //this.props?.details?.firstName ? this.props.details.first name : ""; throws an error as unexpected token
+
+        let details = this.props.details ? this.props.details : "";
+        let firstName = details.firstName ? this.props.details.firstName : ""; 
+        let lastName = details.lastName ? this.props.details.lastName : ""; 
+        let fullName = `${firstName} ${lastName}`;
+
         let email = this.props.details ? this.props.details.email : ""
         let phone = this.props.details ? this.props.details.phone : ""
 
