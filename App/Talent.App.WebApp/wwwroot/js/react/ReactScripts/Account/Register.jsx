@@ -47,7 +47,7 @@ export default class Register extends React.Component {
             terms: this.state.terms
         };
 
-        var link = IDENTITY_URL + "/authentication/authentication/signin";
+        var link = IDENTITY_URL + "authentication/authentication/signup";
 
         $.ajax({
             url: link,

@@ -107,7 +107,7 @@ export default class AccountProfile extends React.Component {
     saveProfile() {
         var cookies = Cookies.get('talentAuthToken');
         $.ajax({
-            url: PROFILE_URL +'profile/profile/updateTalentProfile',
+            url: PROFILE_URL + "profile/profile/updateTalentProfile",
             headers: {
                 'Authorization': 'Bearer ' + cookies,
                 'Content-Type': 'application/json'
