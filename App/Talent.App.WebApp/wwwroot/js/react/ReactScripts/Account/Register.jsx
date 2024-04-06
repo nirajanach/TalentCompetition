@@ -34,9 +34,9 @@ export default class Register extends React.Component {
         this.register = this.register.bind(this);
     };
     register() {
-        var self = this;
+        let self = this;
         this.setState({ isLoading: true });
-        var registerModel = {
+        let registerModel = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             companyName: this.state.companyName,
@@ -47,7 +47,7 @@ export default class Register extends React.Component {
             terms: this.state.terms
         };
 
-        var link = IDENTITY_URL + "authentication/authentication/signup";
+        let link = IDENTITY_URL + "authentication/authentication/signup";
 
         $.ajax({
             url: link,
@@ -86,7 +86,7 @@ export default class Register extends React.Component {
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
         let fieldValid
-        var formValid = this.state.formValid;
+        let formValid = this.state.formValid;
         switch (fieldName) {
             case 'email':
                 fieldValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);

@@ -40,7 +40,7 @@ export default class AdaptiveBanner extends React.Component {
     }
 
     isUserAuthenticated() {
-        var cookies = Cookies.get('talentAuthToken')
+        let cookies = Cookies.get('talentAuthToken')
         $.ajax({
             url: PROFILE_URL +'profile/profile/isUserAuthenticated',
             headers: {

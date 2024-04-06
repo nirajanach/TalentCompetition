@@ -68,8 +68,8 @@ export default class AccountProfile extends React.Component {
     }
 
     loadData() {
-        var cookies = Cookies.get('talentAuthToken');
-        var link = PROFILE_URL + "profile/profile/getTalentProfile";
+        let cookies = Cookies.get('talentAuthToken');
+        let link = PROFILE_URL + "profile/profile/getTalentProfile";
 
         $.ajax({
             url: link,
@@ -105,7 +105,7 @@ export default class AccountProfile extends React.Component {
     }
 
     saveProfile() {
-        var cookies = Cookies.get('talentAuthToken');
+        let cookies = Cookies.get('talentAuthToken');
         $.ajax({
             url: PROFILE_URL + "profile/profile/updateTalentProfile",
             headers: {

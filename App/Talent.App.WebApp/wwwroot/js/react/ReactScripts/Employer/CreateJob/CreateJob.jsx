@@ -62,14 +62,14 @@ export default class CreateJob extends React.Component {
 
     loadData() {
         //const root = "" 
-        //var param = root.getAttribute('data-id');
-        var param = this.props.match.params.id ? this.props.match.params.id : "";//workaround till we get Redux in to keep the page from breaking
-        var copyJobParam = this.props.match.params.copyId ? this.props.match.params.copyId : "";
+        //let param = root.getAttribute('data-id');
+        let param = this.props.match.params.id ? this.props.match.params.id : "";//workaround till we get Redux in to keep the page from breaking
+        let copyJobParam = this.props.match.params.copyId ? this.props.match.params.copyId : "";
 
         if (param != "" || copyJobParam != "") {
-            var link = param != "" ? TALENT_URL +'listing/listing/GetJobByToEdit?id=' + param
+            let link = param != "" ? TALENT_URL +'listing/listing/GetJobByToEdit?id=' + param
                 :  TALENT_URL + 'listing/listing/GetJobForCopy?id=' + copyJobParam;
-            var cookies = Cookies.get('talentAuthToken');
+            let cookies = Cookies.get('talentAuthToken');
             $.ajax({
                 url: link,
                 headers: {
@@ -95,11 +95,11 @@ export default class CreateJob extends React.Component {
         }       
     }
     addUpdateJob() {
-        var jobData = this.state.jobData;
-        console.log("data to save:", jobData);
+        let jobData = this.state.jobData;
+        //console.log("data to save:", jobData);
         //jobData.jobDetails.startDate = jobData.jobDetails.startDate.toDate();
         console.log("date:", jobData.jobDetails.startDate);
-        var cookies = Cookies.get('talentAuthToken');   
+        let cookies = Cookies.get('talentAuthToken');   
         $.ajax({
             url: TALENT_URL + 'listing/listing/createUpdateJob',
             headers: {

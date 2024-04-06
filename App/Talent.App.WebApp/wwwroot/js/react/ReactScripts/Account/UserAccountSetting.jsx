@@ -54,7 +54,7 @@ export default class UserAccountSetting extends React.Component {
         if (field == "name") {   
 
 
-            var link = IDENTITY_URL + "authentication/authentication/changeUserName?userName=";
+            let link = IDENTITY_URL + "authentication/authentication/changeUserName?userName=";
             $.ajax({
                 url: link + this.state.userName,
                 type: 'POST',
